@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../../includes/header') %>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+       <%- include('../../includes/sidebar') %>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <%- include('../../includes/navbar') %>
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <%- include('../../includes/message') %>
+
+                    <h1 class="h3 mb-4 text-gray-800">Category</h1>
+
+                    <div class="card shadow mb-4">
+                        <div class="d-flex justify-content-between card-header py-3">
+                           <div>
+                               <h6 class="m-0 font-weight-bold text-primary">List Category</h6>
+                           </div>
+                           <div>
+                               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                   Tambah Category
+                               </button>
+                           </div>
+                        </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                            <%- include('list_category') %>
+                          </div>
+                      </div>
+                  </div>
+
+                </div>
+            </div>
+
+           <%- include('../../includes/footer') %>
+
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <%- include('add_modal') %>
+    <%- include('edit_modal') %>
+    <%- include('../../includes/script') %>
+
+    <script>
+        $('#dataTable').on('click', '.button-update', function(){
+            let id = $(this).data('id')
+            let name = $(this).data('name')
+
+            $('#modal-edit').modal('show');
+            
+            $('.id').val(id)
+            $('.name').val(name)
+        } )
+    </script>
+
+</body>
+
+</html>
